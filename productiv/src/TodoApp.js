@@ -3,6 +3,7 @@ import { v4 as uuid } from "uuid";
 
 import TopTodo from "./TopTodo";
 import EditableTodoList from "./EditableTodoList";
+import TodoForm from "./TodoForm";
 
 /** App for managing a todo list.
  *
@@ -43,25 +44,28 @@ function TodoApp({initialTodos}) {
       <main className="TodoApp">
         <div className="row">
           <div className="col-md-6">
-          {todos.length > 0 && 
-            <EditableTodoList 
-              todos={todos} 
-              update={update} 
-              remove={remove}/>} 
-            {todos.length === 0 && 
+          {todos.length > 0 &&
+            <EditableTodoList
+              todos={todos}
+              update={update}
+              remove={remove}/>}
+            {todos.length === 0 &&
             <span className="text-muted">You have no todos.</span>}
           </div>
 
+
           <div className="col-md-6">
-            (if no top todo, omit this whole section)
+            {todos.length > 0 &&
             <section className="mb-4">
               <h3>Top Todo</h3>
-              <TopTodo />
+              <TopTodo todos={todos} />
             </section>
+            }
 
             <section>
               <h3 className="mb-3">Add Nü</h3>
-              FIXME
+              <TodoForm handleSave={create} />
+
             </section>
           </div>
 
