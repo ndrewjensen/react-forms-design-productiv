@@ -10,6 +10,7 @@ import "./App.css";
  **/
 
 function App() {
+  //QUESTION: Why does the footer get a component but not the Header?
   return (
       <main className="App">
         <header className="container-fluid pt-4 pb-1">

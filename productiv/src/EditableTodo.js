@@ -12,23 +12,30 @@ import TodoForm from "./TodoForm";
  * EditableTodoList -> EditableTodo -> { Todo, TodoForm }
  */
 
-function EditableTodo() {
+function EditableTodo({todo, update, remove}) {
 
   /** Toggle if this is being edited */
-  function toggleEdit() { }
+  function toggleEdit() {
+
+   }
 
   /** Call remove fn passed to this. */
-  function handleDelete() { }
+  //FIXME:
+  function handleDelete(remove) {
+    remove()
+
+   }
 
   /** Edit form saved; toggle isEditing and update in ancestor. */
   function handleSave(formData) { }
-
+  
+  
   return (
       <div className="EditableTodo">
 
                 EITHER
 
-                <TodoForm />
+                <TodoForm todo={todo} update={update} remove={remove} u/>
 
                 OR
 
@@ -45,7 +52,7 @@ function EditableTodo() {
                       Del
                     </button>
                   </div>
-                  <Todo />
+                  <Todo todo={todo} />
                 </div>
 
       </div>
