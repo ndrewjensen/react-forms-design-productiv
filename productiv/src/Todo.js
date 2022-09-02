@@ -9,15 +9,13 @@ import React from "react";
  **/
 
 function Todo({todo}) {
-  console.log("COOL todo ", todo);
-  const {id, title, description, priority} = todo;
-  
+  const {title, description, priority} = todo;
 
   return (
       <div className="Todo">
         <div>
           <b>{title}</b>
-          <small>priority: {priority}</small>
+          <small> priority: {priority}</small>
         </div>
         <div>
           <small>{description}</small>

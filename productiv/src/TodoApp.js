@@ -27,7 +27,7 @@ function TodoApp({initialTodos}) {
 
   /** update a todo with updatedTodo */
   function update(updatedTodo) {
-    //TODO: refactor to one line
+
     setTodos(todos.map( todo =>
       todo.id === updatedTodo.id
       ? todo = updatedTodo
