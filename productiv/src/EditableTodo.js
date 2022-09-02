@@ -16,16 +16,15 @@ import TodoForm from "./TodoForm";
  */
 
 function EditableTodo({todo, update, remove}) {
-  const [edit, setEdit] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
 
 
   /** Toggle if this is being edited */
   function toggleEdit() {
-    setEdit(!edit);
+    setIsEditing(!isEditing);
    }
 
   /** Call remove fn passed to this. */
-  //QUESTION: Do we need to use this
   function handleDelete() {
     remove(todo.id);
    }
@@ -41,11 +40,11 @@ function EditableTodo({todo, update, remove}) {
       <div className="EditableTodo">
 
 
-              {edit &&
+              {isEditing &&
                 <TodoForm initialFormData={todo} handleSave={handleSave} u/>
               }
 
-              {!edit &&
+              {!isEditing &&
                 <div className="mb-3">
                   <div className="float-end text-sm-end">
                     <button

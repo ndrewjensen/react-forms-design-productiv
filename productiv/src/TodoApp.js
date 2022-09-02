@@ -22,22 +22,22 @@ function TodoApp({initialTodos}) {
   /** add a new todo to list */
   function create(newTodo) {
     newTodo = {...newTodo, id: uuid()};
-    setTodos([...todos,newTodo])
+    setTodos(todos => [...todos,newTodo])
   }
 
   /** update a todo with updatedTodo */
   function update(updatedTodo) {
 
-    setTodos(todos.map( todo =>
+    setTodos(todos => todos.map( todo =>
       todo.id === updatedTodo.id
-      ? todo = updatedTodo
+      ? updatedTodo
       : todo
     ))
   }
 
   /** delete a todo by id */
   function remove(id) {
-    setTodos(todos.filter(todo => todo.id !== id));
+    setTodos(todos => todos.filter(todo => todo.id !== id));
   }
 
   return (
