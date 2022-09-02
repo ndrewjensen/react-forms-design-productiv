@@ -37,7 +37,7 @@ function TodoApp({initialTodos}) {
 
   /** delete a todo by id */
   function remove(id) {
-    setTodos(todos.filter(todo => todo.id !== id))
+    setTodos(todos.filter(todo => todo.id !== id));
   }
 
   return (

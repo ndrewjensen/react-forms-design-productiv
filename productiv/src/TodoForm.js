@@ -42,7 +42,7 @@ function TodoForm({initialFormData, handleSave}) {
               className="form-control"
               placeholder="Title"
               onChange={handleChange}
-              value="FIXME"
+              value={formData.title}
               aria-label="Title"
           />
         </div>
@@ -54,7 +54,7 @@ function TodoForm({initialFormData, handleSave}) {
               className="form-control"
               placeholder="Description"
               onChange={handleChange}
-              value="FIXME"
+              value={formData.description}
               aria-label="Description"
           />
         </div>
@@ -66,7 +66,7 @@ function TodoForm({initialFormData, handleSave}) {
             </label>
             <select id="newTodo-priority"
                     name="priority"
-                    value="FIXME"
+                    value={formData.priority}
                     onChange={handleChange}
                     className="form-control form-control-sm d-inline-flex"
             >
