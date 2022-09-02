@@ -1,21 +1,16 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Todo from "./Todo";
+import TopTodo from "./TopTodo";
+import {INITIAL_TODOS} from "./_testCommon"
 
-const INITIAL_TODO = {
-  id: 1,
-  title: "Test1",
-  description: "Test1 Description",
-  priority: 1,
-};
 
-describe("productiv Todo", function () {
+describe("productiv TopTodo", function () {
   it("renders without crashing", function () {
-    render(<Todo todo={INITIAL_TODO} />);
+    render(<TopTodo todos={INITIAL_TODOS} />);
   });
 
   it("contains expected text", function () {
-    const { container } = render(<Todo todo={INITIAL_TODO} />);
+    const { container, debug } = render(<TopTodo todos={INITIAL_TODOS} />);
 
     expect(container.querySelector(".Todo")).toBeInTheDocument();
     expect(container).toContainHTML("<b>Test1</b>");
@@ -26,7 +21,7 @@ describe("productiv Todo", function () {
   });
 
   it("matches snapshot", function () {
-    const { container } = render(<Todo todo={INITIAL_TODO} />);
+    const { container } = render(<TopTodo todos={INITIAL_TODOS} />);
     expect(container).toMatchSnapshot();
   });
 });

@@ -1,27 +1,10 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import TodoApp from "./TodoApp";
+import { INITIAL_TODOS } from "./_testCommon";
 
-const INITIAL_TODOS= [
-  {
-    id: 1,
-    title: "Test1",
-    description: "Test1 Description",
-    priority: 1,
-  },
-  {
-    id: 2,
-    title: "Test2",
-    description: "Test2 Description",
-    priority: 2,
-  },
-     {
-    id: 3,
-    title: "Test3",
-    description: "Test3 Description",
-    priority: 3,
-  }
-];
+//FIXME: This testing suite is not complete
+
 
 describe("productiv TodoApp", function () {
   it("renders without crashing", function () {
@@ -31,7 +14,6 @@ describe("productiv TodoApp", function () {
   it("contains expected text", function () {
     const { container, debug } = render(<TodoApp initialTodos={INITIAL_TODOS}/>);
 
-    debug();
     // expect(result).toBeInTheDocument();
     expect(container).toContainHTML("Test1 Description");
     expect(container).toContainHTML("Add Nü");
