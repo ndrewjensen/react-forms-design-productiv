@@ -67,4 +67,4 @@ function EditableTodo({todo, update, remove}) {
   );
 }
 
-export default EditableTodo;
+export default EditableTodo

@@ -4,7 +4,7 @@ import TopTodo from "./TopTodo";
 import { INITIAL_TODO } from "./_testCommon"
 import EditableTodo from "./EditableTodo";
 
-
+//TODO: delete 
 describe("productiv EditableTodo", function () {
   it("renders without crashing", function () {
     render(<EditableTodo todo={INITIAL_TODO} />);
@@ -20,7 +20,7 @@ describe("productiv EditableTodo", function () {
     expect(container.querySelector('.EditableTodo-toggle')).toBeInTheDocument();
     expect(container.querySelector('.EditableTodo-delBtn')).toBeInTheDocument();
   });
-  
+
   it("contains expected text when editing", function () {
     const { container, debug, queryByDisplayValue } = render(<EditableTodo todo={INITIAL_TODO} />);
     fireEvent.click(container.querySelector('.EditableTodo-toggle'))
