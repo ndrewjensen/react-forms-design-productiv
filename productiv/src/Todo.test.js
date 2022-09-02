@@ -1,13 +1,8 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import Todo from "./Todo";
+import { INITIAL_TODO } from "./_testCommon";
 
-const INITIAL_TODO = {
-  id: 1,
-  title: "Test1",
-  description: "Test1 Description",
-  priority: 1,
-};
 
 describe("productiv Todo", function () {
   it("renders without crashing", function () {
@@ -21,8 +16,7 @@ describe("productiv Todo", function () {
     expect(container).toContainHTML("<b>Test1</b>");
     expect(container).toContainHTML("<small> priority: 1</small>");
     expect(container).toContainHTML("<small>Test1 Description</small>");
-  //   expect(container).toContainHTML(`
-  //   <div><div class="Todo"><div><b>Test1</b><small> priority: 1</small></div><div><small>Test1 Description</small></div></div></div>`);
+    expect(container).toContainHTML(`<div><div class="Todo"><div><b>Test1</b><small> priority: 1</small></div><div><small>Test1 Description</small></div></div></div>`);
   });
 
   it("matches snapshot", function () {

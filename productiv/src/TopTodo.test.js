@@ -16,8 +16,7 @@ describe("productiv TopTodo", function () {
     expect(container).toContainHTML("<b>Test1</b>");
     expect(container).toContainHTML("<small> priority: 1</small>");
     expect(container).toContainHTML("<small>Test1 Description</small>");
-  //   expect(container).toContainHTML(`
-  //   <div><div class="Todo"><div><b>Test1</b><small> priority: 1</small></div><div><small>Test1 Description</small></div></div></div>`);
+    expect(container).toContainHTML(`<div><div class="Todo"><div><b>Test1</b><small> priority: 1</small></div><div><small>Test1 Description</small></div></div></div>`);
   });
 
   it("matches snapshot", function () {

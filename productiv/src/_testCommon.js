@@ -20,4 +20,11 @@ const INITIAL_TODOS= [
   }
 ];
 
-export {INITIAL_TODOS}
+const INITIAL_TODO = {
+  id: 1,
+  title: "Test1",
+  description: "Test1 Description",
+  priority: 1,
+};
+
+export {INITIAL_TODOS, INITIAL_TODO}
