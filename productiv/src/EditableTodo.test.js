@@ -1,16 +1,17 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
-import TopTodo from "./TopTodo";
+import { screen, render, fireEvent } from "@testing-library/react";
+
 import { INITIAL_TODO } from "./_testCommon"
 import EditableTodo from "./EditableTodo";
 
-//TODO: delete 
+const { getByDisplayValue } = screen;
+
 describe("productiv EditableTodo", function () {
   it("renders without crashing", function () {
     render(<EditableTodo todo={INITIAL_TODO} />);
   });
 
-  it("contains expected text not editing", function () {
+  it("contains expected text when not editing", function () {
     const { container, debug } = render(<EditableTodo todo={INITIAL_TODO} />);
 
     expect(container.querySelector(".Todo")).toBeInTheDocument();
@@ -21,17 +22,30 @@ describe("productiv EditableTodo", function () {
     expect(container.querySelector('.EditableTodo-delBtn')).toBeInTheDocument();
   });
 
-  it("contains expected text when editing", function () {
-    const { container, debug, queryByDisplayValue } = render(<EditableTodo todo={INITIAL_TODO} />);
+  it("renders form with expected text when editing", function () {
+    const { container, debug } = render(<EditableTodo todo={INITIAL_TODO} />);
     fireEvent.click(container.querySelector('.EditableTodo-toggle'))
     expect(container.querySelector('.NewTodoForm')).toBeInTheDocument();
-    expect(queryByDisplayValue('Test1')).toBeInTheDocument();
-    expect(queryByDisplayValue('Test1 Description')).toBeInTheDocument();
-    expect(queryByDisplayValue('Ultra-Über')).toBeInTheDocument();
+    expect(getByDisplayValue('Test1')).toBeInTheDocument();
+    expect(getByDisplayValue('Test1 Description')).toBeInTheDocument();
+    expect(getByDisplayValue('Ultra-Über')).toBeInTheDocument();
 
   });
 
+  it("delete button should call remove function", function () {
+    const remove = jest.fn();
+    remove.mockClear();
+    
+    const { container, debug } = render(<
+      EditableTodo 
+        todo={INITIAL_TODO} 
+        remove={remove} 
+    />);
 
+    expect(container.querySelector(".Todo")).toBeInTheDocument();
+    fireEvent.click(container.querySelector('.EditableTodo-delBtn'))
+    expect(remove).toHaveBeenCalledWith(1);
+  })
 
   it("matches snapshot", function () {
     const { container } = render(<EditableTodo todo={INITIAL_TODO} />);

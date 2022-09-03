@@ -11,12 +11,25 @@ describe("productiv Todo", function () {
 
   it("contains expected text", function () {
     const { container } = render(<Todo todo={INITIAL_TODO} />);
-
+    const html = `<div><div class="Todo"><div><b>Test1</b><small> priority: 1</small></div><div><small>Test1 Description</small></div></div></div>`
+    //QUESTION: What am I doing wrong here?
+    // const html = `
+    //   <div>
+    //     <div class="Todo">
+    //       <div>
+    //         <b>Test1</b>
+    //         <small> priority: 1</small>
+    //       </div>
+    //       <div>
+    //         <small>Test1 Description</small>
+    //       </div>
+    //     </div>
+    //   </div>`
     expect(container.querySelector(".Todo")).toBeInTheDocument();
     expect(container).toContainHTML("<b>Test1</b>");
     expect(container).toContainHTML("<small> priority: 1</small>");
     expect(container).toContainHTML("<small>Test1 Description</small>");
-    expect(container).toContainHTML(`<div><div class="Todo"><div><b>Test1</b><small> priority: 1</small></div><div><small>Test1 Description</small></div></div></div>`);
+    expect(container).toContainHTML(html.replace(/[\n\t]/g,""));
   });
 
   it("matches snapshot", function () {
